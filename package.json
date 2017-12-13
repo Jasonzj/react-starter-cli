@@ -1,6 +1,6 @@
 {
   "name": "generator-jreact",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "一个react构建脚手架",
   "repository": {
     "type": "git",
