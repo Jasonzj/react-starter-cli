@@ -1,0 +1,15 @@
+{
+  "name": "generator-react-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jason",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^2.0.1"
+  }
+}
