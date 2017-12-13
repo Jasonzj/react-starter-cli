@@ -1,9 +1,13 @@
 # react-starter-cli
-> 一个react初始项目生成器
+
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/Jasonzj/react-starter-cli/blob/master/LICENSE)
+
+## react初始项目生成器
 
 集成了react开发常用技术桟
 *react@v16.0.0 + redux + router4 + webpack3 + es6/es7 + sass + proxy + 组件懒加载 +热加载...
 
+## Get Started
 1. 安装yeoman
 ```bash
 npm install -g yo
