@@ -1,6 +1,6 @@
 {
-  "name": "react-starter-cli",
-  "version": "1.0.0",
+  "name": "generator-react-starter",
+  "version": "1.0.1",
   "description": "一个react构建脚手架",
   "repository": {
     "type": "git",
