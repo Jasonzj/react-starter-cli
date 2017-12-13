@@ -13,8 +13,6 @@ install:
   - npm install -g generator-jreact
 
 script:
-  - mkdir ../react-dmeo
-  - cd ..
-  - cd react-demo
+  - mkdir react-demo && cd react-demo
   - yo jreact
   - npm test
