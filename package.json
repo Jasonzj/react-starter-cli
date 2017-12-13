@@ -1,12 +1,15 @@
 {
-  "name": "generator-react-starter",
+  "name": "react-starter-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个react构建脚手架",
+  "repository": {
+    "type": "git",
+    "url": "git:https://github.com/Jasonzj/react-starter-cli.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "Jason",
   "license": "MIT",
   "dependencies": {
