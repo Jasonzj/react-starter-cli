@@ -14,6 +14,7 @@ install:
 
 script:
   - mkdir ../react-dmeo
-  - cd ../react-demo
+  - cd ..
+  - cd react-demo
   - yo jreact
   - npm test
