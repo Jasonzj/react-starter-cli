@@ -13,7 +13,7 @@ install:
   - npm install -g generator-jreact
 
 script:
-  - mkdir home/travis/react-dmeo
-  - cd home/travis/react-demo
+  - mkdir ../react-dmeo
+  - cd ../react-demo
   - yo jreact
   - npm test
