@@ -1,6 +1,5 @@
 
 sudo: true
-os: osx
 language: node_js
 node_js:
   - "7"
@@ -14,6 +13,7 @@ install:
   - npm install -g generator-jreact
 
 script:
-  - mkdir react-dmeo && cd react-demo
+  - mkdir react-dmeo
+  - cd react-demo
   - yo jreact
   - npm test
