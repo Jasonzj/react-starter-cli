@@ -9,10 +9,9 @@ cache:
     - node_modules
 
 install:
-  - npm install -g yo
-  - npm install -g generator-jreact
+  - npm install -g react-starter-cli
 
 script:
-  - mkdir react-demo && cd react-demo
-  - yo jreact
+  - jreact init react-demo
+  - cd react-demo
   - npm test
