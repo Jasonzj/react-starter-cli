@@ -3,6 +3,8 @@ const fs = require('fs')
 const glob = require('glob')
 const chalk = require('chalk')
 const util = require('util')
+const download = require('./download')
+const deleteDir = require('./deleteDir')
 const Generator = require('yeoman-generator')
 
 module.exports = class extends Generator {
@@ -18,26 +20,33 @@ module.exports = class extends Generator {
 
     writing () {
         this.log(chalk.bold.green('资源初始化...'))
-        const directory = (src, name) => (
-            this.fs.copy(
-                this.templatePath(src),
-                this.destinationPath(name)
-            )
-        )
+        const cb = this.async()
+        download('temp')
+            .then(target => {
+                const directory = (src, name) => (
+                    this.fs.copy(
+                        path.join(target, src),
+                        this.destinationPath(name)
+                    )
+                )
 
-        fs.mkdirSync(this.destinationPath('public'))
-        fs.mkdirSync(this.destinationPath('mock'))
-        directory('src', 'src')
-        directory('test', 'test')
-        directory('.babelrc', '.babelrc')
-        directory('README.md', 'README.md')
-        directory('server.js', 'server.js')
-        directory('index.html', 'index.html')
-        directory('package.json', 'package.json')
-        directory('.eslintrc.json', '.eslintrc.json')
-        directory('webpack.base.js', 'webpack.base.js')
-        directory('webpack.prod.js', 'webpack.prod.js')
-        directory('webpack.dev.js', 'webpack.dev.js')
+                fs.mkdirSync(this.destinationPath('public'))
+                fs.mkdirSync(this.destinationPath('mock'))
+                directory('src', 'src')
+                directory('test', 'test')
+                directory('.babelrc', '.babelrc')
+                directory('README.md', 'README.md')
+                directory('server.js', 'server.js')
+                directory('index.html', 'index.html')
+                directory('package.json', 'package.json')
+                directory('.eslintrc.json', '.eslintrc.json')
+                directory('webpack.base.js', 'webpack.base.js')
+                directory('webpack.prod.js', 'webpack.prod.js')
+                directory('webpack.dev.js', 'webpack.dev.js')
+                deleteDir(this.destinationPath('temp'))
+                cb()
+            })
+            .catch(err => console.error(err))
     }
 
     install () {

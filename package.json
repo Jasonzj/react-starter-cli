@@ -13,6 +13,7 @@
   "author": "Jason",
   "license": "MIT",
   "dependencies": {
+    "download-git-repo": "^1.0.1",
     "yeoman-generator": "^2.0.1"
   }
 }
