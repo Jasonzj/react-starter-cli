@@ -32,7 +32,7 @@ download(projectName)
     .then(target => {
         const loading = ora('npm install...')
         loading.start()
-        const child = exec('npm install', { cwd: projectName }, function (err, stdout, stderr) {
+        const child = exec('npm install', { cwd: projectName }, (err, stdout, stderr) => {
             if (err) {
                 loading.fail()
                 console.log(logSymbols.error, chalk.red(`npm安装失败: ${err}`))
