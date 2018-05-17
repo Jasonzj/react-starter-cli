@@ -36,14 +36,10 @@ if (!fsExistsSync(projectName)) {
 
 download(projectName)
     .then(target => {
-        console.log(program)
-        console.log(skip)
-        if (skip) {
-            return {
-                projectName: target,
-                projectVersion: '1.0.0',
-                projectDescription: `A project named ${target}`
-            }
+        if (skip) return {
+            projectName: target,
+            projectVersion: '1.0.0',
+            projectDescription: `A project named ${target}`
         }
 
         return inquirer.prompt([
