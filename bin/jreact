@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
-require('commander')
+const program = require("commander")
+
+program
     .version(require('../package').version)
-    .usage('<command> [项目名称]')
+    .usage('<options> <command> [项目名称]')
     .command('init', '创建新项目')
     .parse(process.argv)
+

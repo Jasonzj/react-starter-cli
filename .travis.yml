@@ -12,10 +12,7 @@ install:
   - npm install -g react-starter-cli
 
 script:
-  - jreact init react-demo
-  - jason
-  - 1.0.0
-  - description
+  - jreact init react-demo -y
   - cd react-demo
   - npm install
   - npm test
