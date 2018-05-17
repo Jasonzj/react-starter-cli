@@ -2,7 +2,7 @@
 sudo: true
 language: node_js
 node_js:
-  - "7"
+  - "8"
 
 cache:
   directories:
@@ -12,7 +12,7 @@ install:
   - npm install -g react-starter-cli
 
 script:
-  - jreact init react-demo -y
-  - cd react-demo
+  - jreact init demo -y
+  - cd demo
   - npm install
   - npm test
