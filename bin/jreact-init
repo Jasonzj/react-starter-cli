@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 const fsExistsSync = require('../lib/fsExistsSync')
+const generator = require('../lib/generator')
 const download = require('../lib/download')
 const logSymbols = require('log-symbols')
 const exec = require('child_process').exec
+const inquirer = require('inquirer')
 const program = require("commander")
+const rm = require('rimraf').sync
 const chalk = require('chalk')
 const glob = require('glob')
 const path = require('path')
@@ -27,26 +30,38 @@ if (!fsExistsSync(projectName)) {
     return
 }
 
-
 download(projectName)
     .then(target => {
-        const loading = ora('npm install...')
-        loading.start()
-        const child = exec('npm install', { cwd: projectName }, (err, stdout, stderr) => {
-            if (err) {
-                loading.fail()
-                console.log(logSymbols.error, chalk.red(`npm安装失败: ${err}`))
+        return inquirer.prompt([
+            {
+                name: 'projectName',
+                message: '项目的名称',
+                default: target
+            }, {
+                name: 'projectVersion',
+                message: '项目的版本号',
+                default: '1.0.0'
+            }, {
+                name: 'projectDescription',
+                message: '项目的简介',
+                default: `A project named ${target}`
             }
-            loading.succeed()
-            console.log(logSymbols.success, chalk.green('创建成功:)'))
-            console.log(
-            chalk.green(`
-                cd ${projectName}
-                npm run dev     (启动dev服务)
-                npm run build   (打包项目)
-                npm test        (运行测试)
-            `
-            ))
-        })
+        ])
     })
-    .catch(err => console.log(logSymbols.error, chalk.red(`创建失败: ${err}`)))
+    .then(data => generator(data, projectName, path.join('.', projectName)))
+    .then(() => {
+        console.log(logSymbols.success, chalk.green('创建成功:)'))
+        console.log(
+            chalk.green(`
+            cd ${projectName}
+            npm install     (安装依赖)
+            npm run dev     (启动dev服务)
+            npm run build   (打包项目)
+            npm test        (运行测试)
+            `
+        ))
+    })
+    .catch(err => {
+        rm(projectName)
+        console.log(logSymbols.error, chalk.red(`创建失败: ${err}`))
+    })
