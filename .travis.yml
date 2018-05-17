@@ -13,9 +13,9 @@ install:
 
 script:
   - jreact init react-demo
-  - cd react-demo
-  - npm install
   - jason
   - 1.0.0
   - description
+  - cd react-demo
+  - npm install
   - npm test
