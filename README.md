@@ -21,6 +21,12 @@ npm install -g react-starter-cli
 jreact init [projectName]
 ```
 
+3. 安装依赖
+```bash
+npm install
+```
+
+4. 运行
 - 运行dev-server
 ```bash
 npm run dev
