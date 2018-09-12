@@ -1,6 +1,7 @@
 # react-starter-cli
 > react初始项目生成器
 
+[![Build Status](https://travis-ci.org/Jasonzj/react-starter-cli.svg?branch=master)](https://travis-ci.org/Jasonzj/react-starter-cli)
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/Jasonzj/react-starter-cli/blob/master/LICENSE)
 
 

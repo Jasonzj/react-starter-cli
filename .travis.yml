@@ -12,7 +12,7 @@ install:
   - npm install -g react-starter-cli
 
 script:
-  - jreact init demo -y
+  - jreact init demo -j
   - cd demo
   - npm install
   - npm test
